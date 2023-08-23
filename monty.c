@@ -16,10 +16,10 @@ int main(int argc, char **argv)
 	int num_instructions;
 	instruction_t instructions[] = {
 		{"push", push},
-		{"pall", pall}
+		{"pall", pall},
+		{"pint", pint}
 	};
 
-	sscanf(line, "%s %u", opcode, &line_number);
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -50,7 +50,7 @@ int main(int argc, char **argv)
 	while (stack)
 	{
 		temp = stack;
-		stack = stack->next;
+		stack = stack->prev;
 		free(temp);
 	}
 
