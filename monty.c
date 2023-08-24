@@ -23,7 +23,8 @@ int main(int argc, char **argv)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
-		{"sub", sub}
+		{"sub", sub},
+		{"div", divide}
 	};
 
 	if (argc != 2)
