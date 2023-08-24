@@ -47,7 +47,7 @@ int main(int argc, char **argv)
 		sscanf(line, "%s %s", opcode, value);
 		if (opcode[0] == "#")
 		{
-			continue;
+			return (0);
 		}
 		line_number++;
 		global.value = value;
