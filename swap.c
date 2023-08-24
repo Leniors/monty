@@ -2,6 +2,8 @@
 
 /**
  * swap - swap elements at the top of the stack
+ * @stack: pointer
+ * @line_number: line number
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
