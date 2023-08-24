@@ -5,8 +5,23 @@
  */
 void add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = (*stack)->prev;
-	(void)line_number;
+	stack_t *temp;
+	stack_t *current = *stack;
+	int num_nodes = 0;
 
-	fprintf(stdout, "%d\n", (*stack)->n + temp->n);
+	while (current)
+	{
+		num_nodes++;
+		current = current->prev;
+	}
+
+	if (num_nodes < 2)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short", line_number);
+		exit(EXIT_FAILURE);
+	}
+	temp = *stack;
+	*stack = (*stack)->prev;
+	(*stack)->n = temp->n + (*stack)->n;
+	free(temp);
 }
