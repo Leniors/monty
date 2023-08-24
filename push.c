@@ -9,11 +9,13 @@ void push(stack_t **stack, unsigned int line_number)
 
 	if (!new_node)
 	{
+		fclose(global.file);
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	if (!global.value)
 	{
+		fclose(global.file);
 		fprintf(stderr, "L%u: usage: push integer", line_number);
 		exit(EXIT_FAILURE);
 	}
