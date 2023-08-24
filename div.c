@@ -27,6 +27,6 @@ void divide(stack_t **stack, unsigned int line_number)
 	}
 	temp = *stack;
 	*stack = (*stack)->prev;
-	(*stack)->n = (*stack)->n / temp->n;
+	(*stack)->n = temp->n / (*stack)->n;
 	free(temp);
 }
