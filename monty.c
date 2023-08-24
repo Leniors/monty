@@ -27,6 +27,7 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 	{
+		fclose(file);
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
@@ -50,6 +51,12 @@ int main(int argc, char **argv)
 				instructions[i].f(&stack, line_number);
 				break;
 			}
+		}
+		if (i == num_instructions)
+		{
+			fclose(file);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+			exit(EXIT_FAILURE);
 		}
 	}
 
