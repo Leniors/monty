@@ -29,7 +29,8 @@ int main(int argc, char **argv)
 		{"mod", mod},
 		{"pchar", pchar},
 		{"pstr", pstr},
-		{"rotl", rotl}
+		{"rotl", rotl},
+		{"rotr", rotr}
 	};
 
 	if (argc != 2)
