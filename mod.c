@@ -22,11 +22,11 @@ void mod(stack_t **stack, unsigned int line_number)
 	}
 	temp = *stack;
 	*stack = (*stack)->prev;
-	if (temp->n == 0)
+	if ((*stack)->n == 0 || temp->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	(*stack)->n = (*stack)->n / temp->n;
+	(*stack)->n = (*stack)->n % temp->n;
 	free(temp);
 }

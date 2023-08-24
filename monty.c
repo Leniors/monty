@@ -25,7 +25,8 @@ int main(int argc, char **argv)
 		{"nop", nop},
 		{"sub", sub},
 		{"div", divide},
-		{"mul", mul}
+		{"mul", mul},
+		{"mod", mod}
 	};
 
 	if (argc != 2)
