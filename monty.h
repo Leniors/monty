@@ -8,6 +8,7 @@
 #include <fcntl.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdbool.h>
 
 typedef struct stack_s
 {
@@ -24,7 +25,7 @@ typedef struct instruction_s
 
 typedef struct global_s
 {
-	int value;
+	char *value;
 	FILE *file;
 } global_t;
 global_t global;
@@ -36,5 +37,6 @@ void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
+bool is_integer(const char *str);
 
 #endif

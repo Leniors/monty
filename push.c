@@ -6,6 +6,7 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
+	int i;
 
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
@@ -14,13 +15,14 @@ void push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	if (!global.value)
+	if (is_integer(global.value) != true)
 	{
 		fclose(global.file);
-		fprintf(stderr, "L%u: usage: push integer", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	new_node->n = global.value;
+	i = atoi(global.value);
+	new_node->n = i;
 	new_node->prev = NULL;
 	new_node->next = NULL;
 	if (*stack == NULL)

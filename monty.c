@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 	unsigned int line_number = 0;
 	int num_instructions;
 	FILE *file = fopen(argv[1], "r");
-	int value;
+	char value[10];
 	instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},
@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 	while (fgets(line, sizeof(line), file))
 	{
 		line_number++;
-		sscanf(line, "%s %d", opcode, &value);
+		sscanf(line, "%s %s", opcode, value);
 		global.value = value;
 		num_instructions = sizeof(instructions) / sizeof(instructions[0]);
 		for (i = 0; i < num_instructions; i++)
