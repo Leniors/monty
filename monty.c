@@ -44,13 +44,13 @@ int main(int argc, char **argv)
 
 	while (fgets(line, sizeof(line), file))
 	{
-		line_number++;
 		sscanf(line, "%s %s", opcode, value);
-		global.value = value;
 		if (opcode[0] == "#")
 		{
 			continue;
 		}
+		line_number++;
+		global.value = value;
 		num_instructions = sizeof(instructions) / sizeof(instructions[0]);
 		for (i = 0; i < num_instructions; i++)
 		{
