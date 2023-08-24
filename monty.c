@@ -30,7 +30,9 @@ int main(int argc, char **argv)
 		{"pchar", pchar},
 		{"pstr", pstr},
 		{"rotl", rotl},
-		{"rotr", rotr}
+		{"rotr", rotr},
+		{"stack", sta},
+		{"queue", queue}
 	};
 
 	if (argc != 2)
