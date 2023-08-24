@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 	while (fgets(line, sizeof(line), file))
 	{
 		sscanf(line, "%s %s", opcode, value);
-		if (opcode[0] == "#")
+		if (opcode[0] == '#')
 		{
 			return (0);
 		}
