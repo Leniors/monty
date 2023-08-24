@@ -47,6 +47,10 @@ int main(int argc, char **argv)
 		line_number++;
 		sscanf(line, "%s %s", opcode, value);
 		global.value = value;
+		if (opcode[0] == "#")
+		{
+			continue;
+		}
 		num_instructions = sizeof(instructions) / sizeof(instructions[0]);
 		for (i = 0; i < num_instructions; i++)
 		{
