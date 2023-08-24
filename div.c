@@ -20,13 +20,13 @@ void divide(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if ((*stack)->n == 0)
+	temp = *stack;
+	*stack = (*stack)->prev;
+	if ((*stack)->n == 0 || temp->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero", line_number);
 		exit(EXIT_FAILURE);
 	}
-	temp = *stack;
-	*stack = (*stack)->prev;
-	(*stack)->n = temp->n / (*stack)->n;
+	(*stack)->n = (*stack)->n / temp->n;
 	free(temp);
 }
